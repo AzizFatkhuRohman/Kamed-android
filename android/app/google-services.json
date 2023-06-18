@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "54961759952",
+    "project_id": "kampus-media",
+    "storage_bucket": "kampus-media.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54961759952:android:56b63f0b8cc848fbd060d5",
+        "android_client_info": {
+          "package_name": "com.example.kamed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54961759952-bdprot0msen04ue46k5g2dkt9jb80dho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5REKZ5hmyt02HJb3IyR5VsiZ29qnkxOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54961759952-bdprot0msen04ue46k5g2dkt9jb80dho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
