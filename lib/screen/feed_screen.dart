@@ -25,9 +25,9 @@ class _FeedScreenState extends State<FeedScreen> {
           : AppBar(
               backgroundColor: Colors.red,
               centerTitle: false,
-              title: Image.network("https://raw.githubusercontent.com/AzizFatkhuRohman/Kamed-android/master/assets/kamed.png",
-              width: 100, // Lebar gambar dalam satuan piksel
-              height: 50,),
+              title: Image.network("https://raw.githubusercontent.com/AzizFatkhuRohman/Kamed-android/master/assets/logo-putih.png",
+              width: 250,
+              height: 60,)
             ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),

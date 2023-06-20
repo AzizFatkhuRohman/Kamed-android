@@ -110,9 +110,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           backgroundColor: Colors.black,
                         ),
                   Positioned(
-                    bottom: -10,
-                    left: 80,
+                    bottom: -5,
+                    left: 40,
                     child: IconButton(
+                      alignment: Alignment.center,
                       onPressed: selectImage,
                       icon: const Icon(Icons.add_a_photo),
                     ),

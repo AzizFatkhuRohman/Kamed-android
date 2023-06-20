@@ -24,10 +24,9 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
           : AppBar(
               backgroundColor: Colors.red,
               centerTitle: false,
-              title: Text(
-                "Kampus media",
-                style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
-              ),
+              title: Image.network("https://raw.githubusercontent.com/AzizFatkhuRohman/Kamed-android/master/assets/logo-putih.png",
+              width: 250,
+              height: 60,)
             ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('jual').snapshots(),
