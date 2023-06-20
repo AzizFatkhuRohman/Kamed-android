@@ -46,42 +46,49 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: blueColor,
+        backgroundColor: mobileBackgroundColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: (_page == 0) ? primaryColor : secondaryColor,
+              color: (_page == 0) ? Colors.black : secondaryColor,
             ),
             label: '',
-            backgroundColor: primaryColor,
+            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
-                color: (_page == 1) ? primaryColor : secondaryColor,
+                color: (_page == 1) ? Colors.black : secondaryColor,
               ),
               label: '',
-              backgroundColor: primaryColor),
+              backgroundColor: Colors.black),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_circle_rounded,
-                color: (_page == 2) ? primaryColor : secondaryColor,
+                color: (_page == 2) ? Colors.black : secondaryColor,
               ),
               label: '',
-              backgroundColor: primaryColor),
+              backgroundColor: Colors.black),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.add_business_rounded,
+                color: (_page == 3) ? Colors.black : secondaryColor,
+              ),
+              label: '',
+              backgroundColor: Colors.black),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: (_page == 3) ? primaryColor : secondaryColor,
+              color: (_page == 4) ? Colors.black : secondaryColor,
             ),
             label: '',
-            backgroundColor: primaryColor,
+            backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: (_page == 4) ? primaryColor : secondaryColor,
+              color: (_page == 5) ? Colors.black : secondaryColor,
             ),
             label: '',
             backgroundColor: primaryColor,

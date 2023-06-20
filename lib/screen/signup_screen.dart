@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kamed/resource/auth_methods.dart';
-import 'package:kamed/responsive/mobile_screen_layout.dart';
-import 'package:kamed/responsive/responsive_layout.dart';
-import 'package:kamed/responsive/web_screen_layout.dart';
 import 'package:kamed/screen/login_screen.dart';
 import 'package:kamed/utils/colors.dart';
 // import 'package:kamed/utils/global_variable.dart';
@@ -54,13 +51,8 @@ class _SignupScreenState extends State<SignupScreen> {
         _isLoading = false;
       });
       // navigate to the home screen
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const ResponsiveLayout(
-            mobileScreenLayout: MobileScreenLayout(),
-            webScreenLayout: WebScreenLayout(),
-          ),
-        ),
+      Navigator.of(context).push(
+        MaterialPageRoute( builder: (context) => const LoginScreen()),
       );
     } else {
       setState(() {
@@ -97,7 +89,7 @@ class _SignupScreenState extends State<SignupScreen> {
               Text(
                 'Sign Up',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 30
+                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black
                 ),
               ),
               const SizedBox(
@@ -109,13 +101,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       ? CircleAvatar(
                           radius: 60,
                           backgroundImage: MemoryImage(_image!),
-                          backgroundColor: Colors.red,
+                          backgroundColor: Colors.black,
                         )
                       : const CircleAvatar(
                           radius: 60,
                           backgroundImage: NetworkImage(
                               'https://i.stack.imgur.com/l60Hf.png'),
-                          backgroundColor: Colors.red,
+                          backgroundColor: Colors.black,
                         ),
                   Positioned(
                     bottom: -10,
@@ -131,7 +123,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 20,
               ),
               TextFieldInput(
-                hintText: 'Enter your username',
+                hintText: 'Masukkan nama',
                 textInputType: TextInputType.text,
                 textEditingController: _usernameController,
               ),
@@ -139,7 +131,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 20,
               ),
               TextFieldInput(
-                hintText: 'Enter your email',
+                hintText: 'Masukkan email',
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
               ),
@@ -147,7 +139,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 20,
               ),
               TextFieldInput(
-                hintText: 'Enter your password',
+                hintText: 'Masukkan password',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
                 isPass: true,
@@ -156,7 +148,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 height: 20,
               ),
               TextFieldInput(
-                hintText: 'Enter your bio',
+                hintText: 'Masukkan bio',
                 textInputType: TextInputType.text,
                 textEditingController: _bioController,
               ),
@@ -201,7 +193,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 children: [
                   Container(
                     child: const Text(
-                      'Already have an account?',
+                      'Sudah punya akun?',
+                      style: TextStyle(color: Colors.black)
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),

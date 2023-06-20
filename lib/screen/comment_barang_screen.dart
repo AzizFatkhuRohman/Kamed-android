@@ -9,21 +9,21 @@ import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/comment_card.dart';
 import 'package:provider/provider.dart';
 
-class CommentsScreen extends StatefulWidget {
+class CommentBarangScreen extends StatefulWidget {
   final postId;
-  const CommentsScreen({Key? key, required this.postId}) : super(key: key);
+  const CommentBarangScreen({Key? key, required this.postId}) : super(key: key);
 
   @override
-  _CommentsScreenState createState() => _CommentsScreenState();
+  _CommentBarangScreenState createState() => _CommentBarangScreenState();
 }
 
-class _CommentsScreenState extends State<CommentsScreen> {
+class _CommentBarangScreenState extends State<CommentBarangScreen> {
   final TextEditingController commentEditingController =
       TextEditingController();
 
-  void postComment(String uid, String name, String profilePic) async {
+  void BarangComment(String uid, String name, String profilePic) async {
     try {
-      String res = await FireStoreMethods().postComment(
+      String res = await FireStoreMethods().BarangComment(
         widget.postId,
         commentEditingController.text,
         uid,
@@ -69,7 +69,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
-            .collection('posts')
+            .collection('jual')
             .doc(widget.postId)
             .collection('comments')
             .snapshots(),
@@ -124,7 +124,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                 ),
               ),
               InkWell(
-                onTap: () => postComment(
+                onTap: () => BarangComment(
                   user.uid,
                   user.username,
                   user.photoUrl,

@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/global_variable.dart';
-import 'package:kamed/widgets/post_card.dart';
+import 'package:kamed/widgets/ecommerce_card.dart';
 
-class FeedScreen extends StatefulWidget {
-  const FeedScreen({Key? key}) : super(key: key);
+class EcommerceScreen extends StatefulWidget {
+  const EcommerceScreen({Key? key}) : super(key: key);
 
   @override
-  State<FeedScreen> createState() => _FeedScreenState();
+  State<EcommerceScreen> createState() => _EcommerceScreenState();
 }
 
-class _FeedScreenState extends State<FeedScreen> {
+class _EcommerceScreenState extends State<EcommerceScreen> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -40,7 +40,7 @@ class _FeedScreenState extends State<FeedScreen> {
               ],
             ),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('posts').snapshots(),
+        stream: FirebaseFirestore.instance.collection('jual').snapshots(),
         builder: (context,
             AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -55,7 +55,7 @@ class _FeedScreenState extends State<FeedScreen> {
                 horizontal: width > webScreenSize ? width * 0.3 : 0,
                 vertical: width > webScreenSize ? 15 : 0,
               ),
-              child: PostCard(
+              child: EcommerceCard(
                 snap: snapshot.data!.docs[index].data(),
               ),
             ),

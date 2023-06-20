@@ -74,9 +74,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: blueColor,
+              backgroundColor: mobileBackgroundColor,
               title: Text(
                 userData['username'],
+                style:
+                TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black
+                          ),
               ),
               centerTitle: false,
             ),
@@ -104,9 +108,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    buildStatColumn(postLen, "posts"),
-                                    buildStatColumn(followers, "followers"),
-                                    buildStatColumn(following, "following"),
+                                    buildStatColumn(postLen, "Postingan"),
+                                    buildStatColumn(followers, "Pengikut"),
+                                    buildStatColumn(following, "Diikuti"),
                                   ],
                                 ),
                                 Row(
@@ -120,7 +124,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             backgroundColor:
                                                 blueColor,
                                             textColor: Colors.white,
-                                            borderColor: Colors.grey,
+                                            borderColor: secondaryColor,
                                             function: () async {
                                               await AuthMethods().signOut();
                                               Navigator.of(context)
@@ -134,10 +138,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                           )
                                         : isFollowing
                                             ? FollowButton(
-                                                text: 'Unfollow',
+                                                text: 'Batal ikuti',
                                                 backgroundColor: blueColor,
                                                 textColor: Colors.white,
-                                                borderColor: Colors.grey,
+                                                borderColor: secondaryColor,
                                                 function: () async {
                                                   await FireStoreMethods()
                                                       .followUser(
@@ -153,10 +157,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                 },
                                               )
                                             : FollowButton(
-                                                text: 'Follow',
-                                                backgroundColor: Colors.blue,
+                                                text: 'Ikuti',
+                                                backgroundColor: blueColor,
                                                 textColor: Colors.white,
-                                                borderColor: Colors.blue,
+                                                borderColor: secondaryColor,
                                                 function: () async {
                                                   await FireStoreMethods()
                                                       .followUser(
@@ -186,7 +190,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Text(
                           userData['username'],
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black
                           ),
                         ),
                       ),
@@ -196,7 +200,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           top: 1,
                         ),
                         child: Text(
-                          userData['bio'],
+                          userData['bio'], style: TextStyle(color: Colors.black),
                         ),
                       ),
                     ],
@@ -254,6 +258,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           style: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            color: Colors.black
           ),
         ),
         Container(
@@ -262,8 +267,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             label,
             style: const TextStyle(
               fontSize: 15,
-              fontWeight: FontWeight.w400,
-              color: Colors.grey,
+              fontWeight: FontWeight.normal,
+              color: Colors.black,
             ),
           ),
         ),

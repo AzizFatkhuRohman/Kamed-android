@@ -24,16 +24,17 @@ class _SearchScreenState extends State<SearchScreen> {
         title: Form(
           child: TextFormField(
             controller: searchController,
+            style: TextStyle(color: Colors.black),
             decoration:
                 const InputDecoration(
                   labelText: 'Cari akun...',
-                  labelStyle: TextStyle(color: Colors.white),
+                  labelStyle: TextStyle(color: Colors.black),
                   border: OutlineInputBorder(
                   borderSide: BorderSide(width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.red, width: 2.0),
+                  borderSide: BorderSide(color: Colors.black, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
                   ),

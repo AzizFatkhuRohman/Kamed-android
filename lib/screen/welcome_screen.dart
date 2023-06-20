@@ -39,11 +39,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center, // Teks berada di tengah tombol
       children: <Widget>[
-        Icon(
-        Icons.play_arrow,
-        color: primaryColor,
-        size: 24,
-      ),
         Container(
           width: 350,
           height: 60,

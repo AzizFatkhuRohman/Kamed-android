@@ -3,28 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:kamed/models/user.dart' as model;
 import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/resource/firestore_methods.dart';
-import 'package:kamed/screen/comments_screen.dart';
+import 'package:kamed/screen/comment_barang_screen.dart';
 import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/global_variable.dart';
 import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-// ignore: unused_import
-// import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
-class PostCard extends StatefulWidget {
+class EcommerceCard extends StatefulWidget {
   final snap;
-  const PostCard({
+  const EcommerceCard({
     Key? key,
     required this.snap,
   }) : super(key: key);
 
   @override
-  State<PostCard> createState() => _PostCardState();
+  State<EcommerceCard> createState() => _EcommerceCardState();
 }
 
-class _PostCardState extends State<PostCard> {
+class _EcommerceCardState extends State<EcommerceCard> {
   int commentLen = 0;
   bool isLikeAnimating = false;
 
@@ -37,7 +36,7 @@ class _PostCardState extends State<PostCard> {
   fetchCommentLen() async {
     try {
       QuerySnapshot snap = await FirebaseFirestore.instance
-          .collection('posts')
+          .collection('jual')
           .doc(widget.snap['postId'])
           .collection('comments')
           .get();
@@ -51,9 +50,9 @@ class _PostCardState extends State<PostCard> {
     setState(() {});
   }
 
-  deletePost(String postId) async {
+  deleteBarang(String postId) async {
     try {
-      await FireStoreMethods().deletePost(postId);
+      await FireStoreMethods().deleteBarang(postId);
     } catch (err) {
       showSnackBar(
         context,
@@ -61,6 +60,16 @@ class _PostCardState extends State<PostCard> {
       );
     }
   }
+//   void launchWhatsApp() async {
+//   String phoneNumber = '089699735698'; // Ganti dengan nomor tujuan Anda
+//   String message = 'Halo, saya tertarik dengan produk Anda.'; // Pesan yang ingin dikirim
+
+//   String url = 'https://wa.me/$phoneNumber?text=${Uri.parse(message)}';
+  
+//   if (!await launchUrl(url as Uri)) {
+//      throw Exception('Could not launch $url');
+//   }
+// }
 
   @override
   Widget build(BuildContext context) {
@@ -138,7 +147,7 @@ class _PostCardState extends State<PostCard> {
                                                 child: Text(e),
                                               ),
                                               onTap: () {
-                                                deletePost(
+                                                deleteBarang(
                                                   widget.snap['postId']
                                                       .toString(),
                                                 );
@@ -160,7 +169,7 @@ class _PostCardState extends State<PostCard> {
           // IMAGE SECTION OF THE POST
           GestureDetector(
             onDoubleTap: () {
-              FireStoreMethods().likePost(
+              FireStoreMethods().likeBarang(
                 widget.snap['postId'].toString(),
                 user.uid,
                 widget.snap['likes'],
@@ -219,7 +228,7 @@ class _PostCardState extends State<PostCard> {
                           Icons.favorite_border,
                           color: Colors.black
                         ),
-                  onPressed: () => FireStoreMethods().likePost(
+                  onPressed: () => FireStoreMethods().likeBarang(
                     widget.snap['postId'].toString(),
                     user.uid,
                     widget.snap['likes'],
@@ -232,12 +241,20 @@ class _PostCardState extends State<PostCard> {
                 ),
                 onPressed: () => Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => CommentsScreen(
+                    builder: (context) => CommentBarangScreen(
                       postId: widget.snap['postId'].toString(),
                     ),
                   ),
                 ),
               ),
+            //   IconButton(
+            //     icon: const Icon(
+            //       Icons.call_sharp, color: Colors.black,
+            //     ),
+            //     onPressed: () {
+            //   launchWhatsApp();
+            // },
+            //   ),
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -255,34 +272,39 @@ class _PostCardState extends State<PostCard> {
                     child: Text(
                       '${widget.snap['likes'].length} likes',
                       style: TextStyle(color: secondaryColor),
-                    )),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                  ),
-                  child: RichText(
-                    text: TextSpan(
-                      style: const TextStyle(color: primaryColor),
-                      children: [
-                        TextSpan(
-                          text: widget.snap['username'].toString(),
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold, color: blueColor
-                          ),
-                        ),
-                        TextSpan(
-                          text: ' ${widget.snap['description']}',
-                          style: TextStyle(color: blueColor)
-                        ),
-                      ],
+                    )
                     ),
+                    Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        widget.snap['namaBarang'].toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: blueColor,
+                        ),
+                      ),
+                      Text(
+                        widget.snap['hargaBarang'].toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: blueColor,
+                        ),
+                      ),
+                      Text(
+                        widget.snap['deskripsi'],
+                        style: TextStyle(color: blueColor),
+                      ),
+                    ],
                   ),
                 ),
                 InkWell(
                   child: Container(
                     child: Text(
-                      'Lihat semua $commentLen comments',
+                      'Lihat semua $commentLen komentar',
                       style: const TextStyle(
                         fontSize: 16,
                         color: secondaryColor,
@@ -292,7 +314,7 @@ class _PostCardState extends State<PostCard> {
                   ),
                   onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => CommentsScreen(
+                      builder: (context) => CommentBarangScreen(
                         postId: widget.snap['postId'].toString(),
                       ),
                     ),

@@ -77,14 +77,14 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 'Sign In',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 30
+                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black
                 ),
               ),
               const SizedBox(
                 height: 50,
               ),
               TextFieldInput(
-                hintText: 'Enter your email',
+                hintText: 'Masukkan email',
                 textInputType: TextInputType.emailAddress,
                 textEditingController: _emailController,
               ),
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               TextFieldInput(
-                hintText: 'Enter your password',
+                hintText: 'Masukkan password',
                 textInputType: TextInputType.text,
                 textEditingController: _passwordController,
                 isPass: true,
@@ -138,7 +138,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Container(
                     child: const Text(
-                      'Dont have an account?',
+                      'Belum punya akun?',
+                      style: TextStyle(color: Colors.black),
                     ),
                     padding: const EdgeInsets.symmetric(vertical: 8),
                   ),

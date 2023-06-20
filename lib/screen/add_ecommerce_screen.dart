@@ -6,26 +6,29 @@ import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/resource/firestore_methods.dart';
 import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/utils.dart';
+import 'package:kamed/widgets/text_field_input.dart';
 import 'package:provider/provider.dart';
 
-class AddPostScreen extends StatefulWidget {
-  const AddPostScreen({Key? key}) : super(key: key);
+class AddEcommerceScreen extends StatefulWidget {
+  const AddEcommerceScreen({Key? key}) : super(key: key);
 
   @override
-  _AddPostScreenState createState() => _AddPostScreenState();
+  _AddEcommerceScreenState createState() => _AddEcommerceScreenState();
 }
 
-class _AddPostScreenState extends State<AddPostScreen> {
+class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
   Uint8List? _file;
   bool isLoading = false;
-  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _deskripsiController = TextEditingController();
+  final TextEditingController _namaBarangController = TextEditingController();
+  final TextEditingController _hargaBarangController = TextEditingController();
 
   _selectImage(BuildContext parentContext) async {
     return showDialog(
       context: parentContext,
       builder: (BuildContext context) {
         return SimpleDialog(
-          title: const Text('Buat postingan'),
+          title: const Text('Buat postingan jualan'),
           children: <Widget>[
             SimpleDialogOption(
                 padding: const EdgeInsets.all(20),
@@ -67,8 +70,10 @@ class _AddPostScreenState extends State<AddPostScreen> {
     // start the loading
     try {
       // upload to storage and db
-      String res = await FireStoreMethods().uploadPost(
-        _descriptionController.text,
+      String res = await FireStoreMethods().addBarang(
+        _deskripsiController.text,
+        _namaBarangController.text,
+        _hargaBarangController.text,
         _file!,
         uid,
         username,
@@ -106,7 +111,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
   @override
   void dispose() {
     super.dispose();
-    _descriptionController.dispose();
+    _deskripsiController.dispose();
+    _namaBarangController.dispose();
+    _hargaBarangController.dispose();
   }
 
   @override
@@ -130,7 +137,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 onPressed: clearImage,
               ),
               title: const Text(
-                'Postingan', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                'Posting jualan', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
               ),
               centerTitle: false,
               actions: <Widget>[
@@ -148,36 +155,20 @@ class _AddPostScreenState extends State<AddPostScreen> {
               ],
             ),
             // POST FORM
-            body: Column(
-              children: <Widget>[
-                isLoading
-                    ? const LinearProgressIndicator()
-                    : const Padding(padding: EdgeInsets.only(top: 0.0)),
-                const Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: NetworkImage(
-                        userProvider.getUser.photoUrl,
-                      ),
-                    ),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: TextField(
-                        controller: _descriptionController,
-                        style: TextStyle(color: Colors.black),
-                        decoration: const InputDecoration(
-                            hintText: "Tulis deskripsi",
-                            hintStyle: TextStyle(color: Colors.black),
-                            border: InputBorder.none),
-                        maxLines: 8,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 45.0,
-                      width: 45.0,
+             body: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 32),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Container(),
+                flex: 2,
+              ),
+              SizedBox(
+                      height: 80.0,
+                      width: 80.0,
                       child: AspectRatio(
                         aspectRatio: 487 / 451,
                         child: Container(
@@ -190,11 +181,37 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         ),
                       ),
                     ),
-                  ],
-                ),
-                const Divider(),
-              ],
-            ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextFieldInput(
+                hintText: 'Masukkan nama barang',
+                textInputType: TextInputType.text,
+                textEditingController: _namaBarangController,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextFieldInput(
+                hintText: 'Masukkan harga',
+                textInputType: TextInputType.text,
+                textEditingController: _hargaBarangController,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextFieldInput(
+                hintText: 'Masukkan keterangan',
+                textInputType: TextInputType.text,
+                textEditingController: _deskripsiController
+              ),
+              const SizedBox(
+                height: 60,
+              ),
+            ],
+          ),
+        ),
+      ),
           );
   }
 }

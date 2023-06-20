@@ -44,7 +44,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: blueColor,
+        backgroundColor: webBackgroundColor,
         centerTitle: false,
         title: SvgPicture.asset(
           'assets/ic_instagram.svg',
@@ -55,37 +55,44 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
           IconButton(
             icon: Icon(
               Icons.home,
-              color: _page == 0 ? primaryColor : secondaryColor,
+              color: _page == 0 ? Colors.black : secondaryColor,
             ),
             onPressed: () => navigationTapped(0),
           ),
           IconButton(
             icon: Icon(
               Icons.search,
-              color: _page == 1 ? primaryColor : secondaryColor,
+              color: _page == 1 ? Colors.black : secondaryColor,
             ),
             onPressed: () => navigationTapped(1),
           ),
           IconButton(
             icon: Icon(
               Icons.add_circle_rounded,
-              color: _page == 2 ? primaryColor : secondaryColor,
+              color: _page == 2 ? Colors.black : secondaryColor,
             ),
             onPressed: () => navigationTapped(2),
           ),
           IconButton(
             icon: Icon(
-              Icons.shopping_cart,
-              color: _page == 3 ? primaryColor : secondaryColor,
+              Icons.add_business_rounded,
+              color: _page == 3 ? Colors.black : secondaryColor,
             ),
             onPressed: () => navigationTapped(3),
           ),
           IconButton(
             icon: Icon(
-              Icons.person,
-              color: _page == 4 ? primaryColor : secondaryColor,
+              Icons.shopping_cart,
+              color: _page == 4 ? Colors.black : secondaryColor,
             ),
             onPressed: () => navigationTapped(4),
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.person,
+              color: _page == 5 ? Colors.black : secondaryColor,
+            ),
+            onPressed: () => navigationTapped(5),
           ),
         ],
       ),
