@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:kamed/screen/profile_screen.dart';
-import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/global_variable.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -20,21 +19,21 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: Colors.red,
         title: Form(
           child: TextFormField(
             controller: searchController,
-            style: TextStyle(color: Colors.black),
+            style: TextStyle(color: Colors.white),
             decoration:
                 const InputDecoration(
                   labelText: 'Cari akun...',
-                  labelStyle: TextStyle(color: Colors.black),
+                  labelStyle: TextStyle(color: Colors.white),
                   border: OutlineInputBorder(
                   borderSide: BorderSide(width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.black, width: 2.0),
+                  borderSide: BorderSide(color: Colors.white, width: 2.0),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
                   ),
@@ -81,7 +80,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           radius: 16,
                         ),
                         title: Text(
-                          (snapshot.data! as dynamic).docs[index]['username'],
+                          (snapshot.data! as dynamic).docs[index]['username'], style: TextStyle(color: Colors.black),
                         ),
                       ),
                     );

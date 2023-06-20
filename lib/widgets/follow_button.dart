@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kamed/utils/colors.dart';
 
 class FollowButton extends StatelessWidget {
   final Function()? function;
@@ -24,7 +23,7 @@ class FollowButton extends StatelessWidget {
         onPressed: function,
         child: Container(
           decoration: BoxDecoration(
-            color: blueColor,
+            color: Colors.red,
             border: Border.all(
               color: borderColor,
             ),

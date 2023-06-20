@@ -46,49 +46,49 @@ class _MobileScreenLayoutState extends State<MobileScreenLayout> {
         onPageChanged: onPageChanged,
       ),
       bottomNavigationBar: CupertinoTabBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: Colors.red,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: (_page == 0) ? Colors.black : secondaryColor,
+              color: (_page == 0) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
             ),
             label: '',
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.search,
-                color: (_page == 1) ? Colors.black : secondaryColor,
+                color: (_page == 1) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
               ),
               label: '',
-              backgroundColor: Colors.black),
+              backgroundColor: Colors.white),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_circle_rounded,
-                color: (_page == 2) ? Colors.black : secondaryColor,
+                color: (_page == 2) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
               ),
               label: '',
-              backgroundColor: Colors.black),
+              backgroundColor: Colors.white),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.add_business_rounded,
-                color: (_page == 3) ? Colors.black : secondaryColor,
+                color: (_page == 3) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
               ),
               label: '',
-              backgroundColor: Colors.black),
+              backgroundColor: Colors.white),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.shopping_cart,
-              color: (_page == 4) ? Colors.black : secondaryColor,
+              color: (_page == 4) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
             ),
             label: '',
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.white,
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: (_page == 5) ? Colors.black : secondaryColor,
+              color: (_page == 5) ? Colors.white : Color.fromARGB(255, 236, 236, 236),
             ),
             label: '',
             backgroundColor: primaryColor,

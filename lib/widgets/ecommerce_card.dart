@@ -10,7 +10,6 @@ import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-// import 'package:url_launcher/url_launcher.dart';
 
 class EcommerceCard extends StatefulWidget {
   final snap;
@@ -60,16 +59,6 @@ class _EcommerceCardState extends State<EcommerceCard> {
       );
     }
   }
-//   void launchWhatsApp() async {
-//   String phoneNumber = '089699735698'; // Ganti dengan nomor tujuan Anda
-//   String message = 'Halo, saya tertarik dengan produk Anda.'; // Pesan yang ingin dikirim
-
-//   String url = 'https://wa.me/$phoneNumber?text=${Uri.parse(message)}';
-  
-//   if (!await launchUrl(url as Uri)) {
-//      throw Exception('Could not launch $url');
-//   }
-// }
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +185,7 @@ class _EcommerceCardState extends State<EcommerceCard> {
                     isAnimating: isLikeAnimating,
                     child: const Icon(
                       Icons.favorite,
-                      color: Colors.black,
+                      color: Colors.red,
                       size: 100,
                     ),
                     duration: const Duration(
@@ -247,14 +236,6 @@ class _EcommerceCardState extends State<EcommerceCard> {
                   ),
                 ),
               ),
-            //   IconButton(
-            //     icon: const Icon(
-            //       Icons.call_sharp, color: Colors.black,
-            //     ),
-            //     onPressed: () {
-            //   launchWhatsApp();
-            // },
-            //   ),
             ],
           ),
           //DESCRIPTION AND NUMBER OF COMMENTS
@@ -295,7 +276,11 @@ class _EcommerceCardState extends State<EcommerceCard> {
                         ),
                       ),
                       Text(
-                        widget.snap['deskripsi'],
+                        widget.snap['deskripsi'].toString(),
+                        style: TextStyle(color: blueColor),
+                      ),
+                      Text(
+                        widget.snap['nomor'].toString(),
                         style: TextStyle(color: blueColor),
                       ),
                     ],

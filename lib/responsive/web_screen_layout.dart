@@ -44,7 +44,7 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: webBackgroundColor,
+        backgroundColor: Colors.red,
         centerTitle: false,
         title: SvgPicture.asset(
           'assets/ic_instagram.svg',
@@ -55,42 +55,42 @@ class _WebScreenLayoutState extends State<WebScreenLayout> {
           IconButton(
             icon: Icon(
               Icons.home,
-              color: _page == 0 ? Colors.black : secondaryColor,
+              color: _page == 0 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(0),
           ),
           IconButton(
             icon: Icon(
               Icons.search,
-              color: _page == 1 ? Colors.black : secondaryColor,
+              color: _page == 1 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(1),
           ),
           IconButton(
             icon: Icon(
               Icons.add_circle_rounded,
-              color: _page == 2 ? Colors.black : secondaryColor,
+              color: _page == 2 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(2),
           ),
           IconButton(
             icon: Icon(
               Icons.add_business_rounded,
-              color: _page == 3 ? Colors.black : secondaryColor,
+              color: _page == 3 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(3),
           ),
           IconButton(
             icon: Icon(
               Icons.shopping_cart,
-              color: _page == 4 ? Colors.black : secondaryColor,
+              color: _page == 4 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(4),
           ),
           IconButton(
             icon: Icon(
               Icons.person,
-              color: _page == 5 ? Colors.black : secondaryColor,
+              color: _page == 5 ? Colors.black : Color.fromARGB(255, 236, 236, 236),
             ),
             onPressed: () => navigationTapped(5),
           ),

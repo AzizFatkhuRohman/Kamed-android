@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kamed/models/user.dart';
 import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/resource/firestore_methods.dart';
-// import 'package:kamed/screen/feed_screen.dart';
-import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/comment_card.dart';
 import 'package:provider/provider.dart';
@@ -51,16 +49,16 @@ class _CommentsScreenState extends State<CommentsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: mobileBackgroundColor,
+        backgroundColor: Colors.red,
         title: const Text(
           'Komentar',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.white),
         ),
         centerTitle: false,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black, // Mengatur warna ikon back menjadi hitam
+            color: Colors.white, // Mengatur warna ikon back menjadi hitam
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -116,7 +114,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 2.0),
+                      borderSide: BorderSide(color: Colors.red, width: 2.0),
                       borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     ),
                     ),
@@ -134,7 +132,7 @@ class _CommentsScreenState extends State<CommentsScreen> {
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   child: const Icon(
                     Icons.send,
-                    color: Colors.black,
+                    color: Colors.red,
                 ),
                 ),
               )

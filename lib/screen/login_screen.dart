@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kamed/resource/auth_methods.dart';
 import 'package:kamed/responsive/mobile_screen_layout.dart';
 import 'package:kamed/responsive/responsive_layout.dart';
@@ -77,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 'Sign In',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black
+                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.red
                 ),
               ),
               const SizedBox(
@@ -121,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
-                    color: blueColor,
+                    color: Colors.red,
                   ),
                 ),
                 onTap: loginUser,
@@ -154,7 +153,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ' Sign Up.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue
+                          color: Colors.red
                         ),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 8),

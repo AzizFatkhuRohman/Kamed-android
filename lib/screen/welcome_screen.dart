@@ -43,10 +43,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           width: 350,
           height: 60,
           margin: EdgeInsets.only(top: 20), // Beri margin top
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
-            color: blueColor,
+            color: Colors.red,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center, // Teks berada di tengah tombol

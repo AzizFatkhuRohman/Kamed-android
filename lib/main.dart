@@ -6,7 +6,6 @@ import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/responsive/mobile_screen_layout.dart';
 import 'package:kamed/responsive/responsive_layout.dart';
 import 'package:kamed/responsive/web_screen_layout.dart';
-// import 'package:kamed/screen/login_screen.dart';
 import 'package:kamed/screen/welcome_screen.dart';
 import 'package:kamed/utils/colors.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Kampus media',
+        title: 'Kamed',
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
         ),

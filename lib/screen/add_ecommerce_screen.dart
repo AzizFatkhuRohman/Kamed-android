@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/resource/firestore_methods.dart';
-import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/text_field_input.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +21,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
   final TextEditingController _deskripsiController = TextEditingController();
   final TextEditingController _namaBarangController = TextEditingController();
   final TextEditingController _hargaBarangController = TextEditingController();
-
+  final TextEditingController _nomorController = TextEditingController();
   _selectImage(BuildContext parentContext) async {
     return showDialog(
       context: parentContext,
@@ -74,6 +73,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
         _deskripsiController.text,
         _namaBarangController.text,
         _hargaBarangController.text,
+        _nomorController.text,
         _file!,
         uid,
         username,
@@ -114,6 +114,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
     _deskripsiController.dispose();
     _namaBarangController.dispose();
     _hargaBarangController.dispose();
+    _nomorController.dispose();
   }
 
   @override
@@ -131,13 +132,13 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Colors.red,
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black,),
+                icon: const Icon(Icons.arrow_back, color: Colors.white,),
                 onPressed: clearImage,
               ),
               title: const Text(
-                'Posting jualan', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                'Posting jualan', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
               centerTitle: false,
               actions: <Widget>[
@@ -149,7 +150,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
                   ),
                   child: const Icon(
                     Icons.send,
-                    color: Colors.black,
+                    color: Colors.white,
                 ),
                 )
               ],
@@ -182,7 +183,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
                       ),
                     ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFieldInput(
                 hintText: 'Masukkan nama barang',
@@ -190,7 +191,7 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
                 textEditingController: _namaBarangController,
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFieldInput(
                 hintText: 'Masukkan harga',
@@ -198,12 +199,20 @@ class _AddEcommerceScreenState extends State<AddEcommerceScreen> {
                 textEditingController: _hargaBarangController,
               ),
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               TextFieldInput(
                 hintText: 'Masukkan keterangan',
                 textInputType: TextInputType.text,
                 textEditingController: _deskripsiController
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              TextFieldInput(
+                hintText: 'Masukkan nomor whatsapp',
+                textInputType: TextInputType.text,
+                textEditingController: _nomorController
               ),
               const SizedBox(
                 height: 60,

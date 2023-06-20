@@ -4,6 +4,7 @@ class Jual {
   final String deskripsi;
   final String namaBarang;
   final String hargaBarang;
+  final String nomor;
   final String uid;
   final String username;
   final likes;
@@ -17,6 +18,7 @@ class Jual {
       required this.deskripsi,
       required this.namaBarang,
       required this.hargaBarang,
+      required this.nomor,
       required this.uid,
       required this.username,
       required this.likes,
@@ -33,6 +35,7 @@ class Jual {
       deskripsi: snapshot["deskripsi"],
       namaBarang: snapshot["namaBarang"],
       hargaBarang: snapshot["hargaBarang"],
+      nomor: snapshot["nomor"],
       uid: snapshot["uid"],
       likes: snapshot["likes"],
       postId: snapshot["postId"],
@@ -47,6 +50,7 @@ class Jual {
         "deskripsi": deskripsi,
         "namaBarang": namaBarang,
         "hargaBarang": hargaBarang,
+        "nomor": nomor,
         "uid": uid,
         "likes": likes,
         "username": username,

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/global_variable.dart';
 import 'package:kamed/widgets/ecommerce_card.dart';
@@ -23,21 +22,12 @@ class _EcommerceScreenState extends State<EcommerceScreen> {
       appBar: width > webScreenSize
           ? null
           : AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Colors.red,
               centerTitle: false,
               title: Text(
                 "Kampus media",
-                style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
               ),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
             ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('jual').snapshots(),

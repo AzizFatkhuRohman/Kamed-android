@@ -3,9 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kamed/resource/auth_methods.dart';
 import 'package:kamed/resource/firestore_methods.dart';
-// import 'package:kamed/screen/login_screen.dart';
 import 'package:kamed/screen/welcome_screen.dart';
-import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/follow_button.dart';
 
@@ -74,12 +72,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Colors.red,
               title: Text(
                 userData['username'],
                 style:
                 TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black
+                          fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white
                           ),
               ),
               centerTitle: false,
@@ -122,9 +120,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         ? FollowButton(
                                             text: 'Sign Out',
                                             backgroundColor:
-                                                blueColor,
+                                                Colors.red,
                                             textColor: Colors.white,
-                                            borderColor: secondaryColor,
+                                            borderColor: Colors.white,
                                             function: () async {
                                               await AuthMethods().signOut();
                                               Navigator.of(context)
@@ -139,9 +137,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         : isFollowing
                                             ? FollowButton(
                                                 text: 'Batal ikuti',
-                                                backgroundColor: blueColor,
+                                                backgroundColor: Colors.red,
                                                 textColor: Colors.white,
-                                                borderColor: secondaryColor,
+                                                borderColor: Colors.white,
                                                 function: () async {
                                                   await FireStoreMethods()
                                                       .followUser(
@@ -158,9 +156,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               )
                                             : FollowButton(
                                                 text: 'Ikuti',
-                                                backgroundColor: blueColor,
+                                                backgroundColor: Colors.red,
                                                 textColor: Colors.white,
-                                                borderColor: secondaryColor,
+                                                borderColor: Colors.white,
                                                 function: () async {
                                                   await FireStoreMethods()
                                                       .followUser(
@@ -203,10 +201,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           userData['bio'], style: TextStyle(color: Colors.black),
                         ),
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                      height: 1,
+                      color: Colors.black,
+                    )
                     ],
                   ),
                 ),
-                const Divider(),
+                // const Divider(),
                 FutureBuilder(
                   future: FirebaseFirestore.instance
                       .collection('posts')

@@ -10,8 +10,6 @@ import 'package:kamed/utils/utils.dart';
 import 'package:kamed/widgets/like_animation.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-// ignore: unused_import
-// import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class PostCard extends StatefulWidget {
   final snap;
@@ -187,7 +185,7 @@ class _PostCardState extends State<PostCard> {
                     isAnimating: isLikeAnimating,
                     child: const Icon(
                       Icons.favorite,
-                      color: Colors.black,
+                      color: Colors.red,
                       size: 100,
                     ),
                     duration: const Duration(

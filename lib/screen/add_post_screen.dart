@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:kamed/providers/user_provider.dart';
 import 'package:kamed/resource/firestore_methods.dart';
-import 'package:kamed/utils/colors.dart';
 import 'package:kamed/utils/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -124,13 +123,13 @@ class _AddPostScreenState extends State<AddPostScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Colors.red,
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.black,),
+                icon: const Icon(Icons.arrow_back, color: Colors.white,),
                 onPressed: clearImage,
               ),
               title: const Text(
-                'Postingan', style: TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                'Postingan', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
               ),
               centerTitle: false,
               actions: <Widget>[
@@ -142,7 +141,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                   ),
                   child: const Icon(
                     Icons.send,
-                    color: Colors.black,
+                    color: Colors.white,
                 ),
                 )
               ],

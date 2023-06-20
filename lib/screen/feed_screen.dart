@@ -23,21 +23,11 @@ class _FeedScreenState extends State<FeedScreen> {
       appBar: width > webScreenSize
           ? null
           : AppBar(
-              backgroundColor: mobileBackgroundColor,
+              backgroundColor: Colors.red,
               centerTitle: false,
-              title: Text(
-                "Kampus media",
-                style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.notifications,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+              title: Image.network("https://raw.githubusercontent.com/AzizFatkhuRohman/Kamed-android/master/assets/kamed.png",
+              width: 100, // Lebar gambar dalam satuan piksel
+              height: 50,),
             ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),

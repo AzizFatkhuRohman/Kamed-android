@@ -89,7 +89,7 @@ class _SignupScreenState extends State<SignupScreen> {
               Text(
                 'Sign Up',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.black
+                  fontWeight: FontWeight.bold, fontSize: 30, color: Colors.red
                 ),
               ),
               const SizedBox(
@@ -101,7 +101,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       ? CircleAvatar(
                           radius: 60,
                           backgroundImage: MemoryImage(_image!),
-                          backgroundColor: Colors.black,
+                          backgroundColor: Colors.red,
                         )
                       : const CircleAvatar(
                           radius: 60,
@@ -176,7 +176,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
-                    color: blueColor,
+                    color: Colors.red,
                   ),
                 ),
                 onTap: signUpUser,
@@ -209,7 +209,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ' Sign In.',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue
+                          color: Colors.red
                         ),
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 8),

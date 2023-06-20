@@ -8,7 +8,7 @@ import 'package:uuid/uuid.dart';
 
 class FireStoreMethods {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  Future<String> addBarang(String deskripsi, String namaBarang, String hargaBarang, Uint8List file, String uid,
+  Future<String> addBarang(String deskripsi, String namaBarang, String hargaBarang, String nomor, Uint8List file, String uid,
       String username, String profImage) async {
     // asking uid here because we dont want to make extra calls to firebase auth when we can just get from our state management
     String res = "Some error occurred";
@@ -20,6 +20,7 @@ class FireStoreMethods {
         deskripsi: deskripsi,
         namaBarang: namaBarang,
         hargaBarang: hargaBarang,
+        nomor: nomor,
         uid: uid,
         username: username,
         likes: [],
